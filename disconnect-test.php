@@ -53,6 +53,10 @@ $contentLength = strlen($content);
 error_log($id . ' sending '. $contentLength);
 error_log($id . ' abort detected: ' . (connection_aborted() ? 'YES' : 'NO'));
 
+// second run -- add this so we can carry on if aborted
+// (NB: I added this after first set of tests)
+ignore_user_abort(TRUE);
+
 header('Content-Length: ' . $contentLength);
 $buffer = 1024;
 $sent = 0;
