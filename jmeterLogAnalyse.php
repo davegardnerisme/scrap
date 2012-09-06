@@ -157,7 +157,7 @@ foreach ($analysisFiles as $filename)
         $bytes = (int)$sample->Attributes()->by;
         $success = (string)$sample->Attributes()->s;
         $assertionFailure = (string)$sample->assertionResult->failure;
-        if ($success == 'true' && $assertionFailure == 'false')
+        if ($success == 'true' && $assertionFailure != 'true')
         {
             $success = true;
         }
